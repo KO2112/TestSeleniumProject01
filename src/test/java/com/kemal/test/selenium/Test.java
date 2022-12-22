@@ -38,7 +38,7 @@ public class Test {
 
         int count = 1;
         for (WebElement element1: links) {
-            if (element1.getAttribute("href").equals("javascript:void(0)") || element1.getAttribute("href").isEmpty()){
+            if (element1.getAttribute("href").equals("javascript:void(0)") || element1.getAttribute("href").contains(" ") || element1.getAttribute("href").isEmpty()){
                 continue;
             }
             else{
@@ -46,6 +46,10 @@ public class Test {
             count++;
             }
         }
+        System.out.println(links.size());
+        if (count == 113)
+            assert true;
+        else assert false;
         driver.quit();
         System.out.println(count);
     }
